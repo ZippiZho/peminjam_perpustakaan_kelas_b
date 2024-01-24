@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:peminjaman_perpustakaan_kelas_b/app/routes/app_pages.dart';
 
 import '../controllers/login_controller.dart';
 
@@ -20,33 +21,37 @@ class LoginView extends GetView<LoginController> {
           child: Column(
             children: [
               TextFormField(
-                controller: controller.usernameController,
-                decoration: InputDecoration(hintText: "masukan username"),
-                validator: (value){
-              if (value!.isEmpty) {
-              return "username tidak boleh kosong";
-              }
-              return null;
-              }
+                  controller: controller.usernameController,
+                  decoration: InputDecoration(hintText: "masukan username"),
+                  validator: (value){
+                    if (value!.isEmpty) {
+                      return "username tidak boleh kosong";
+                    }
+                    return null;
+                  }
               ),
 
-          TextFormField(
-            controller: controller.passwordController,
-            decoration: InputDecoration(hintText: "masukan password"),
-            validator: (value){
-              if (value!.isEmpty) {
-                return "password tidak boleh kosong";
-              }
-              return null;
-            }
+              TextFormField(
+                  controller: controller.passwordController,
+                  decoration: InputDecoration(hintText: "masukan password"),
+                  validator: (value){
+                    if (value!.isEmpty) {
+                      return "password tidak boleh kosong";
+                    }
+                    return null;
+                  }
 
-          ),
+              ),
               Obx(() => controller.loading.value?
               CircularProgressIndicator():
               ElevatedButton(onPressed: (){
                 controller.login();
               }, child: Text("Login"))
-              )
+              ),
+
+              ElevatedButton(onPressed: (){
+                Get.offAllNamed(Routes.REGISTER);
+              }, child: Text("Register"))
             ],
           ),
         ),

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class PeminjamanController extends GetxController {
-  //TODO: Implement PeminjamanController
+class HalamanController extends GetxController {
+  //TODO: Implement HalamanController
 
   final count = 0.obs;
   @override
